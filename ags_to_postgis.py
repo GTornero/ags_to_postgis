@@ -60,6 +60,11 @@ def ags_to_postgis(filepath: str,
     host : str, optional
         Host URL of the database, by default "ow-postgre.postgres.database.azure.com" for OW's
         database.
+    
+    Raises
+    ------
+    ValueError
+        If source_espg or target_epsg are not valid EPSG CRS codes.
     """
     if not _is_epsg(source_epsg) and source_epsg is not None:
         raise ValueError(f"{source_epsg=} not a valid EPSG code.")
